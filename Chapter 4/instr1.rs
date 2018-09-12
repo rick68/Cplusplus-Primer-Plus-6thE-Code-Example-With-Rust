@@ -18,7 +18,11 @@ fn main() -> io::Result<()> {
     stdout.write(b"Enter your favorite dessert:\n")?;
     let n = stdin.read(&mut dessert)?;
     dessert[n - 1] = 0; // remove newline
-    write!(stdout, "I have some delicious {}", str::from_utf8(&dessert).unwrap());
+    write!(
+        stdout,
+        "I have some delicious {}",
+        str::from_utf8(&dessert).unwrap()
+    );
     write!(stdout, " for you, {}.\n", str::from_utf8(&name).unwrap());
 
     Ok(())
